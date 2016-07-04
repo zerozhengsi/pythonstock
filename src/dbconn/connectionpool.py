@@ -11,7 +11,7 @@ maxconn = 30            #最大连接数
 mincached = 10           #最小空闲连接
 maxcached = 20          #最大空闲连接
 maxshared = 30          #最大共享连接
-connstring="root#root#127.0.0.1#3307#pystock#utf8" #数据库地址
+connstring="root#root#127.0.0.1#3306#pystock#utf8" #数据库地址
 dbtype = "mysql"                   #选择mysql作为存储数据库
 def createConnectionPool(connstring, dbtype):
     db_conn = connstring.split("#");
