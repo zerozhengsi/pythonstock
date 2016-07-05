@@ -7,7 +7,7 @@ Created on 2016年7月2日
 import MySQLdb
 from log import LoggerFactory
 import connectionpool
-class DBOperator(object):
+class DBOperator():
       
     def __init__(self):
         self.logger = LoggerFactory.getLogger('DBOperator')
