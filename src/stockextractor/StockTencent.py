@@ -78,10 +78,20 @@ class StockTencent(object):
             self.__dbOperatorCash.insertIntoDB(table, stockCash)
             time.sleep(self.__sleepTime)
             
+    def chgStr(self,oldStr,inx):
+        if oldStr == None or oldStr == "":
+            return ""
+        
+        oldStrs = oldStr.split('~')
+        for i in inx:
+            oldStrs[i] = ""
+        newStr = '~'.join(oldStrs)
+        return newStr
+            
     def getStockQuotationDetail(self, dataUrl):
         tempData = self.__getDataFromUrl(dataUrl)
          
-        if tempData == None or tempData == self.__tmpQuotationData:
+        if tempData == None or self.chgStr(tempData, (29,30,35,40,41)) == self.chgStr(self.__tmpQuotationData, (29,30,35,40,41)):
             time.sleep(self.__sleepTime)
             return False 
         
